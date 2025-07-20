@@ -1,0 +1,23 @@
+services:
+  node-services:
+    build:
+      context: ./Backend/auth-service
+      dockerfile: Dockerfile
+
+    container_name: auth-service
+    ports:
+     - "5000:5000"
+     
+  python-services:
+    build:
+      context: ./Backend/payment-service
+      dockerfile : Dockerfile
+    container_name: python-container
+    # depends_on:
+    #   - node-services
+    ports:
+      - "5002:5002"
+
+
+    
+
