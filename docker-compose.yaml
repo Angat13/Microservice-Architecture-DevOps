@@ -3,21 +3,16 @@ services:
     build:
       context: ./Backend/auth-service
       dockerfile: Dockerfile
-
     container_name: auth-service
     ports:
-     - "5000:5000"
-     
+      - "5000:5000"
+    user: "1000:1000"
+
   python-services:
     build:
       context: ./Backend/payment-service
-      dockerfile : Dockerfile
+      dockerfile: Dockerfile
     container_name: python-container
-    # depends_on:
-    #   - node-services
     ports:
       - "5002:5002"
-
-
-    
-
+    user: "1000:1000"
